@@ -1,0 +1,39 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+  "title": "Evento top demais!!!@2",
+  "details": "Um evento mais que top",
+  "maximumAttendees": 100
+}
+
+###
+
+POST http://localhost:3333/events/d6285cf8-93aa-4be9-8b48-8bfbd325ce12/attendee
+Content-Type: application/json
+
+{
+  "name": "Sr Tomato",
+  "email": "mrtomat223o@icloud.com"
+}
+
+###
+
+GET http://localhost:3333/events/d6285cf8-93aa-4be9-8b48-8bfbd325ce12
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:3333/attendees/2/badge
+Content-Type: application/json
+
+###
+
+GET http://localhost:3333/attendees/1/check-in
+Content-Type: application/json
+
+###
+
+GET http://localhost:3333/attendees/d6285cf8-93aa-4be9-8b48-8bfbd325ce12/event?page=1&limit=10&query=mrtomat223o@icloud.com
+Content-Type: application/json

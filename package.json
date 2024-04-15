@@ -1,0 +1,44 @@
+{
+  "name": "events-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.12.2",
+    "prisma": "^5.11.0",
+    "supertest": "^6.3.4",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.4.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src --format esm",
+    "start": "node dist/server.js",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:test": "dotenv -e .env.test -- yarn prisma migrate dev",
+    "migrate-reset:test": "dotenv -e .env.test -- yarn prisma migrate reset",
+    "seed:dev": "tsx ./prisma/seed",
+    "seed:test": "dotenv -e .env.test tsx ./prisma/seed",
+    "db:studio": "prisma studio",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@anatine/zod-mock": "^3.13.4",
+    "@faker-js/faker": "^8.4.1",
+    "@fastify/cors": "^9.0.1",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "@prisma/client": "5.11.0",
+    "@types/supertest": "^6.0.2",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.1",
+    "fastify": "^4.26.2",
+    "fastify-type-provider-zod": "^1.1.9",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.8.0",
+    "zod": "^3.22.4"
+  }
+}
