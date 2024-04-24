@@ -36,5 +36,5 @@ Run the application and test its functionality to ensure everything works as exp
 Feedback and Contributions
 Feedback and contributions are highly appreciated. If you have any suggestions for further improving the codebase or implementing additional SOLID principles, feel free to open an issue or submit a pull request.
 
-Acknowledgments
+### Acknowledgments
 This project was inspired by the Rocketseat Next Level Week Unite event and the original implementation provided by the organizers.
