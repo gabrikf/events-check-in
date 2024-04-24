@@ -1,3 +1,4 @@
+import { AttendeeEntity } from "../../../../core/entities/attendee/attendee.entity";
 import { prisma } from "../../prisma";
 
 export async function resetDb() {
@@ -5,4 +6,6 @@ export async function resetDb() {
     prisma.attendee.deleteMany(),
     prisma.event.deleteMany(),
   ]);
+
+  AttendeeEntity.reset();
 }

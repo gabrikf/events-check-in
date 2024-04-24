@@ -11,5 +11,5 @@ export const eventDetailsOutputSchema = z.object({
   details: z.string().nullable(),
   slug: z.string(),
   maximumAttendees: z.number().int().positive().nullable(),
-  attendeesAmount: z.number().int().positive(),
+  attendeesAmount: z.number().int(),
 });

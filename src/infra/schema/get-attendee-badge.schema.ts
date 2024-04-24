@@ -1,7 +1,7 @@
 import z from "zod";
 
 export const getAttendeeBadgeParamsSchema = z.object({
-  id: z.string().transform(Number),
+  id: z.coerce.number(),
 });
 
 export const getAttendeeBadgeOutputSchema = z.object({

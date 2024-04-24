@@ -23,7 +23,7 @@
     "seed:dev": "tsx ./prisma/seed",
     "seed:test": "dotenv -e .env.test tsx ./prisma/seed",
     "db:studio": "prisma studio",
-    "test": "vitest"
+    "test": "vitest run --pool=forks"
   },
   "dependencies": {
     "@anatine/zod-mock": "^3.13.4",

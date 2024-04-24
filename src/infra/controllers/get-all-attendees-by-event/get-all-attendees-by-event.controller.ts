@@ -4,9 +4,9 @@ import {
   getAllAttendeesByEventOutput,
   getAllAttendeesByEventParamsInput,
   getAllAttendeesByEventQueryInput,
-} from "../schema/get-all-attendees-by-event.schema";
+} from "../../schema/get-all-attendees-by-event.schema";
 import { container } from "tsyringe";
-import { GetAllAttendeesByEventUseCase } from "../../core/use-cases/get-all-attendees-by-event-id/get-all-attendees-by-event-id.use-case";
+import { GetAllAttendeesByEventUseCase } from "../../../core/use-cases/get-all-attendees-by-event-id/get-all-attendees-by-event-id.use-case";
 
 export class GetAllAttendeesByEventController {
   static async handle(app: FastifyInstance) {

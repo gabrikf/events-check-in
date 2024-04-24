@@ -3,9 +3,9 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import {
   getAttendeeBadgeOutputSchema,
   getAttendeeBadgeParamsSchema,
-} from "../schema/get-attendee-badge.schema";
+} from "../../schema/get-attendee-badge.schema";
 import { container } from "tsyringe";
-import { GetAttendeeBadgeUseCase } from "../../core/use-cases/get-attendee-badge/get-attendee-badge.use-case";
+import { GetAttendeeBadgeUseCase } from "../../../core/use-cases/get-attendee-badge/get-attendee-badge.use-case";
 
 export class GetAttendeeBadgeController {
   static async handle(app: FastifyInstance) {

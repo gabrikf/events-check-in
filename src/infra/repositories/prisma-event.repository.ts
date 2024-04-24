@@ -31,6 +31,7 @@ export class PrismaEventRepository implements IEventRepository {
     if (!event) {
       return null;
     }
+
     const parsed = new EventDetailDto({
       id: event?.id,
       details: event?.details,
@@ -39,6 +40,7 @@ export class PrismaEventRepository implements IEventRepository {
       maximumAttendees: event.maximumAttendees,
       attendeesAmount: event._count.attendees,
     });
+
     return parsed;
   }
   async findBySlug(slug: string): Promise<EventEntity | null> {

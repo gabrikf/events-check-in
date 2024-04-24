@@ -7,6 +7,7 @@ import { GetAllAttendeesByEventUseCase } from "./get-all-attendees-by-event-id.u
 import { InMemoryAttendeeRepository } from "../../repositories/in-memory/in-memory-attendee.repository";
 import { InMemoryEventRepository } from "../../repositories/in-memory/in-memory-event.repository";
 import { getInMemoryFactory } from "../../repositories/in-memory";
+import { NotFoundError } from "../../errors/not-found.error";
 
 describe("Get all attendees by event Use Case", () => {
   let eventRepository: IEventRepository;
@@ -28,7 +29,8 @@ describe("Get all attendees by event Use Case", () => {
     eventRepository = inMemoryEventRepository;
     attendeeRepository = inMemoryAttendeeRepository;
     getAllAttendeesByEventUseCase = new GetAllAttendeesByEventUseCase(
-      attendeeRepository
+      attendeeRepository,
+      eventRepository
     );
     await eventRepository.insert(event);
     await attendeeRepository.bulkInsert(attendees);
@@ -87,5 +89,15 @@ describe("Get all attendees by event Use Case", () => {
     expect(result.data[0].email).toBe(attendeeToSearch.email);
     expect(result.data.length).toBe(1);
     expect(result.count).toBe(1);
+  });
+
+  it("should return search by email", async () => {
+    expect(async () => {
+      await getAllAttendeesByEventUseCase.execute({
+        eventId: "wrong_id",
+        page: 1,
+        limit: 10,
+      });
+    }).rejects.toThrow(NotFoundError);
   });
 });

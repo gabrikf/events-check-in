@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { EventEntity } from "../event/event.entity";
-import { beforeEach } from "node:test";
 import { AttendeeEntity } from "./attendee.entity";
 
 describe("Attendee Entity", () => {

@@ -4,9 +4,9 @@ import {
   registerBodyInputSchema,
   registerOutputSchema,
   registerParamsInputSchema,
-} from "../schema/register.schema";
+} from "../../schema/register.schema";
 import { container } from "tsyringe";
-import { RegisterUseCase } from "../../core/use-cases/register/register.use-case";
+import { RegisterUseCase } from "../../../core/use-cases/register/register.use-case";
 
 export class RegisterController {
   static async handle(app: FastifyInstance) {

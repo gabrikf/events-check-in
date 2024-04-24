@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { ZodError } from "zod";
-import { ClientError } from "./core/errors";
+import { ClientError } from "../core/errors";
 
 type FastifyErrorHandler = FastifyInstance["errorHandler"];
 

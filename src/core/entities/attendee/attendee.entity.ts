@@ -50,4 +50,7 @@ export class AttendeeEntity {
     this.checkedInAt = date ?? new Date();
     return this;
   }
+  static reset() {
+    AttendeeEntity.lastId = 0;
+  }
 }

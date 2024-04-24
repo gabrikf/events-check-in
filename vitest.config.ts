@@ -6,6 +6,11 @@ require("dotenv").config({ path: ".env.test" });
 export default defineConfig({
   test: {
     setupFiles: ["./src/infra/lib/vitest/test-setup.ts"],
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
   },
   plugins: [tsconfigPaths()],
 });

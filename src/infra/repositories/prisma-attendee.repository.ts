@@ -38,6 +38,9 @@ export class PrismaAttendeeRepository implements IAttendeeRepository {
       this.repository.findMany({
         take: props.take,
         skip: props.skip,
+        orderBy: {
+          id: "asc",
+        },
         where: props.query
           ? {
               eventId: props.eventId,

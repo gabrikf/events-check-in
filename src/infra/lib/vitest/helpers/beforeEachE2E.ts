@@ -1,33 +1,36 @@
 import { beforeEach } from "vitest";
 
-import { resetDb } from "./reset-db";
-import { EventEntity } from "../../../../core/entities/event/event.entity";
 import { AttendeeEntity } from "../../../../core/entities/attendee/attendee.entity";
+import { EventEntity } from "../../../../core/entities/event/event.entity";
 import { prisma } from "../../prisma";
-import { app } from "../../../../server";
+import { resetDb } from "./reset-db";
 
-export const event = EventEntity.create({
-  title: "Title test",
-  details: "Details test",
-  maximumAttendees: 100,
-});
+export async function setupTests() {
+  await resetDb();
 
-export const attendee = AttendeeEntity.create({
-  name: "Attendee test",
-  email: "attendee@test.com",
-  eventId: event.id,
-});
-
-export async function beforeEachE2E(callBack?: () => unknown) {
-  return beforeEach(async () => {
-    await app.ready();
-    await resetDb();
-    await prisma.event.create({
-      data: event,
+  const { event, attendee } = await prisma.$transaction(async (tx) => {
+    const event = await tx.event.create({
+      data: EventEntity.create({
+        title: "Title test",
+        details: "Details test",
+        maximumAttendees: 100,
+      }),
     });
-    await prisma.attendee.create({
-      data: attendee,
+    const attendee = await tx.attendee.create({
+      data: AttendeeEntity.create({
+        name: "Attendee test",
+        email: "attendee@test.com",
+        eventId: event.id,
+      }),
     });
-    callBack && callBack();
+    return {
+      event,
+      attendee,
+    };
   });
+
+  return {
+    event: new EventEntity(event),
+    attendee: new AttendeeEntity(attendee),
+  };
 }
