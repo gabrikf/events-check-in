@@ -1,7 +1,7 @@
 # Project Refactoring with SOLID Principles
 ## Overview
 
-This project is a refactoring of the original project implemented during the Rocketseat Next Level Week Unite event. The primary objective of this refactoring is to apply the principles of SOLID architecture to enhance code maintainability, scalability, and extensibility.
+This project is a refactoring of the [original project](https://github.com/rocketseat-education/nlw-unite-nodejs) implemented during the Rocketseat Next Level Week Unite event. The primary objective of this refactoring is to apply the principles of SOLID architecture to enhance code maintainability, scalability, and extensibility.
 
 ### About SOLID Principles
 SOLID is an acronym for five design principles intended to make software designs more understandable, flexible, and maintainable. Here's a brief overview of each principle:
